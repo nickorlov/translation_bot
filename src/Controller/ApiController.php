@@ -2,15 +2,16 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ApiController
+class ApiController extends AbstractController
 {
      /**
-      * @Route("/api/test")
+      * @Route("/api/test", methods={"POST"})
       */
-    public function number(): Response
+    public function postback(): Response
     {
         $number = random_int(0, 100);
 

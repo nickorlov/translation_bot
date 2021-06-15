@@ -1,0 +1,9 @@
+monolog:
+    channels: ['telegram']
+    handlers:
+        requests:
+            type: rotating_file
+            path: "%kernel.logs_dir%/telegram.%kernel.environment%.log"
+            level: debug
+            channels: telegram
+            max_files: 10

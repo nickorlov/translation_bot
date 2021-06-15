@@ -1,0 +1,3 @@
+<?php // prod.encrypt.public on Fri, 11 Jun 2021 13:04:55 +0300
+
+return "Y\xD6\xC1\xED\x5CB\x0EG8k9E\xDC\xC6\xFDI\x93\xC0L\x9C\xD54\xB4kgU\x26\x20\x02W\xD6M";

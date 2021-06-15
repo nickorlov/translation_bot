@@ -1,4 +1,7 @@
 {
+    "dejurin/php-google-translate-for-free": {
+        "version": "1.0.0"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -11,8 +14,58 @@
             "config/routes/annotations.yaml"
         ]
     },
+    "doctrine/instantiator": {
+        "version": "1.4.0"
+    },
     "doctrine/lexer": {
         "version": "1.2.1"
+    },
+    "friendsofsymfony/rest-bundle": {
+        "version": "2.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "2.2",
+            "ref": "cad41ef93d6150067ae2bb3c7fd729492dff6f0a"
+        },
+        "files": [
+            "config/packages/fos_rest.yaml"
+        ]
+    },
+    "guzzlehttp/guzzle": {
+        "version": "7.3.0"
+    },
+    "guzzlehttp/promises": {
+        "version": "1.4.1"
+    },
+    "guzzlehttp/psr7": {
+        "version": "1.8.2"
+    },
+    "jms/metadata": {
+        "version": "2.5.0"
+    },
+    "jms/serializer": {
+        "version": "3.12.3"
+    },
+    "jms/serializer-bundle": {
+        "version": "3.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "3.0",
+            "ref": "384cec52df45f3bfd46a09930d6960a58872b268"
+        },
+        "files": [
+            "config/packages/dev/jms_serializer.yaml",
+            "config/packages/jms_serializer.yaml",
+            "config/packages/prod/jms_serializer.yaml"
+        ]
+    },
+    "monolog/monolog": {
+        "version": "2.2.0"
+    },
+    "phpstan/phpdoc-parser": {
+        "version": "0.5.5"
     },
     "psr/cache": {
         "version": "1.0.1"
@@ -23,8 +76,17 @@
     "psr/event-dispatcher": {
         "version": "1.0.0"
     },
+    "psr/http-client": {
+        "version": "1.0.1"
+    },
+    "psr/http-message": {
+        "version": "1.0.1"
+    },
     "psr/log": {
         "version": "1.1.4"
+    },
+    "ralouphie/getallheaders": {
+        "version": "3.0.3"
     },
     "sensio/framework-extra-bundle": {
         "version": "5.2",
@@ -123,6 +185,27 @@
     "symfony/http-kernel": {
         "version": "5.4.x-dev"
     },
+    "symfony/monolog-bridge": {
+        "version": "5.4.x-dev"
+    },
+    "symfony/monolog-bundle": {
+        "version": "3.7",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.7",
+            "ref": "329f6a5ef2e7aa033f802be833ef8d1268dd0848"
+        },
+        "files": [
+            "config/packages/dev/monolog.yaml",
+            "config/packages/prod/deprecations.yaml",
+            "config/packages/prod/monolog.yaml",
+            "config/packages/test/monolog.yaml"
+        ]
+    },
+    "symfony/password-hasher": {
+        "version": "5.4.x-dev"
+    },
     "symfony/polyfill-intl-grapheme": {
         "version": "v1.23.0"
     },
@@ -157,6 +240,9 @@
     "symfony/runtime": {
         "version": "5.4.x-dev"
     },
+    "symfony/security-core": {
+        "version": "5.4.x-dev"
+    },
     "symfony/service-contracts": {
         "version": "v2.4.0"
     },
@@ -171,5 +257,11 @@
     },
     "symfony/yaml": {
         "version": "5.4.x-dev"
+    },
+    "willdurand/jsonp-callback-validator": {
+        "version": "v1.1.0"
+    },
+    "willdurand/negotiation": {
+        "version": "3.0.0"
     }
 }

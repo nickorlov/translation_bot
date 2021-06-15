@@ -2,21 +2,39 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Service\TelegramService;
+use App\ValueObject\TelegramBot;
+use Psr\Log\LoggerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ApiController extends AbstractController
 {
-     /**
-      * @Route("/api/test", methods={"POST"})
-      */
-    public function postback(): Response
+    /**
+     * @Route("/api", methods={"GET"})
+     */
+    public function index(): Response
     {
-        $number = random_int(0, 100);
+        return $this->json(['description' => 'API for translation bot']);
+    }
 
-        return new Response(
-            '<html><body>Lucky number: '.$number.'</body></html>'
-        );
+    /**
+     * @Route("/api/postback", methods={"POST"})
+     */
+    public function postback(
+        Request $request,
+        TelegramService $telegramService,
+        LoggerInterface $telegramLogger
+    ): Response {
+        $body = json_decode($request->getContent(), true);
+        $telegramLogger->debug('Telegram request', $body);
+        $bot = new TelegramBot($body);
+        $telegramService->handleRequest($bot);
+
+        return $this->json([
+            'code' => 200,
+            'message' => 'OK',
+        ]);
     }
 }

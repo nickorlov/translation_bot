@@ -7,3 +7,8 @@ monolog:
             level: debug
             channels: telegram
             max_files: 10
+        logs:
+            type: rotating_file
+            path: "%kernel.logs_dir%/log.%kernel.environment%.log"
+            level: debug
+            max_files: 10

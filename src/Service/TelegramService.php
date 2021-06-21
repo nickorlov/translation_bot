@@ -22,9 +22,14 @@ class TelegramService
 
     public function handleRequest(TelegramBot $bot)
     {
+        if ($bot->getText() !== '') {
+            $translatedText = $this->translator->translate('en', 'ru', $bot->getText());
+        } else {
+            $translatedText = 'Error! I can work with text only.';
+        }
         $data = [
             'chat_id' => $bot->getChatId(),
-            'text' => $this->translator->translate('en', 'ru', $bot->getText()),
+            'text' => $translatedText,
         ];
         $url = sprintf("https://api.telegram.org/bot%s/sendMessage", $this->token);
 

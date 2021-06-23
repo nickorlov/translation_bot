@@ -2,6 +2,8 @@
 
 namespace App\ValueObject;
 
+use Symfony\Component\HttpFoundation\Exception\BadRequestException;
+
 class TelegramBot
 {
     /** @var string */
@@ -18,10 +20,14 @@ class TelegramBot
 
     public function __construct(array $data)
     {
-        $this->chatId = $data['message']['chat']['id'] ?? 0;
-        $this->firstName = $data['message']['from']['first_name'] ?? '';
-        $this->lastName = $data['message']['from']['last_name'] ?? '';
-        $this->text = $data['message']['text'] ?? '';
+        $message = $data['message'] ?? $data['edited_message'] ?? null;
+        if ($message === null) {
+            throw new BadRequestException('Message is required!');
+        }
+        $this->chatId = $message['chat']['id'] ?? 0;
+        $this->firstName = $message['from']['first_name'] ?? '';
+        $this->lastName = $message['from']['last_name'] ?? '';
+        $this->text = $message['text'] ?? '';
     }
 
     public function getFirstName(): string

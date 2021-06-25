@@ -4,7 +4,7 @@ namespace App\ValueObject;
 
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 
-class TelegramBot
+class TelegramBot implements ValueObjectInterface
 {
     /** @var string */
     private $firstName;
@@ -18,6 +18,9 @@ class TelegramBot
     /** @var string */
     private $text;
 
+    /** @var array|null */
+    private $entities;
+
     public function __construct(array $data)
     {
         $message = $data['message'] ?? $data['edited_message'] ?? null;
@@ -28,6 +31,8 @@ class TelegramBot
         $this->firstName = $message['from']['first_name'] ?? '';
         $this->lastName = $message['from']['last_name'] ?? '';
         $this->text = $message['text'] ?? '';
+
+        $this->entities = $message['entities'] ?? null;
     }
 
     public function getFirstName(): string
@@ -48,5 +53,10 @@ class TelegramBot
     public function getText(): string
     {
         return $this->text;
+    }
+
+    public function getEntities(): ?array
+    {
+        return $this->entities;
     }
 }
